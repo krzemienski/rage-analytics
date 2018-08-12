@@ -238,7 +238,7 @@ function wait_for_service() {
     | grep IPAddress | grep -oE '([0-9]{1,3}[.]*){4}' )
   echo -n "Waiting for $1 to be up at ${SERVICE_IP}:$2 ... "
   T=0
-  until netcat -z ${SERVICE_IP} $2 ; do
+  until ncat -z ${SERVICE_IP} $2 ; do
       sleep 1s
       echo -n "."
       ((T++))
