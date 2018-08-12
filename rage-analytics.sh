@@ -22,7 +22,7 @@ COMPOSE_NET_NAME="${COMPOSE_PROJ_NAME}_default"
 # external constants
 MIN_DOCKER_VERSION='1.9'
 MIN_COMPOSE_VERSION='1.7.1'
-INSTALL_COMPOSE_VERSION='1.20.1'
+INSTALL_COMPOSE_VERSION='1.21.2'
 DOCKER_SH_URL='https://get.docker.com/'
 DOCKER_CMD='docker'
 COMPOSE_BASE_URL='https://github.com/docker/compose/releases/download/'
