@@ -14,15 +14,15 @@
 ROOT_PASS_FILE='.env'
 # project-related constants
 PROJECT_NAME='rage-analytics'
-PROJECT_URL="https://github.com/e-ucm/${PROJECT_NAME}"
-PROJECT_RAW_URL="https://raw.githubusercontent.com/e-ucm/${PROJECT_NAME}/"
+PROJECT_URL="https://github.com/krzemienski/${PROJECT_NAME}"
+PROJECT_RAW_URL="https://raw.githubusercontent.com/krzemienski/${PROJECT_NAME}/"
 PROJECT_ISSUE_URL="https://github.com/e-ucm/${PROJECT_NAME}/issues/"
 COMPOSE_PROJ_NAME='rage'
 COMPOSE_NET_NAME="${COMPOSE_PROJ_NAME}_default"
 # external constants
 MIN_DOCKER_VERSION='1.9'
 MIN_COMPOSE_VERSION='1.7.1'
-INSTALL_COMPOSE_VERSION='1.17.0'
+INSTALL_COMPOSE_VERSION='1.20.1'
 DOCKER_SH_URL='https://get.docker.com/'
 DOCKER_CMD='docker'
 COMPOSE_BASE_URL='https://github.com/docker/compose/releases/download/'
@@ -199,7 +199,7 @@ function update_compose() {
 
 # gets composition file and pulls all images from DockerHub
 function get_composition_and_containers() {
-  BASE="https://raw.githubusercontent.com/e-ucm/rage-analytics/"
+  BASE="https://raw.githubusercontent.com/krzemienski/rage-analytics/"
   COMPOSE_YML="${BASE}master/docker-compose.yml"
   EXTENSION_YML="${BASE}master/${COMPOSE_FILE}"
   wget ${COMPOSE_YML} -O docker-compose.yml
@@ -327,7 +327,7 @@ function start() {
 
   launch_and_wait 5 mongo redis elastic5 kzk realtime
   wait_for_service redis 6379 'Redis'
-  wait_for_service elastic5 9300 'ElasticSearch 5'
+  wait_for_service elastic5 9300 'ElasticSearch 6'
   wait_for_service kzk 9092 'Apache Kafka'
   wait_for_service kzk 2181 'Apache ZooKeeper'
   wait_for_service mongo 27017 'MongoDB'
